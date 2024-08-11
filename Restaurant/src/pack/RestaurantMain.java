@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,8 +17,10 @@ import javax.swing.JTextField;
 
 public class RestaurantMain {
 	
-	public static JFrame frame = new JFrame();
-	
+	JFrame frame = new JFrame();
+	ImageIcon img_food;
+	ImageIcon img_food2;
+	JButton FoodIcon;
 	RestaurantMain() {
 		init();
 	}
@@ -27,10 +31,13 @@ public class RestaurantMain {
 	JPanel panel_login = new JPanel();
 	JLabel label_user = new JLabel();
 	JLabel label_pass = new JLabel();
+	JLabel menuframe = new JLabel();
 	JTextField username = new JTextField();
 	JTextField password = new JTextField();
-	ImageIcon img_food = new ImageIcon("food.png");
-	JButton FoodIcon = new JButton();
+	img_food = new ImageIcon("food.png");
+	img_food2 = new ImageIcon("food2.png");
+	ImageIcon menufr = new ImageIcon("menuframe.png");
+	FoodIcon = new JButton();
 	Font font = new Font("Calibri", Font.PLAIN , 30);
 	//...............................//
 	
@@ -51,12 +58,16 @@ public class RestaurantMain {
 	password.setBounds(70, 400, 220, 50);
 	password.setFont(font);
     
+	menuframe.setIcon(menufr);
+	menuframe.setBounds(500,0,500,100);
+	
 	FoodIcon.setIcon(img_food);
 	FoodIcon.setBorderPainted(false);
-	FoodIcon.setBounds(330, 10, 70, 70);
+	FoodIcon.setBounds(550, 15, 70, 70);
 	FoodIcon.setContentAreaFilled(false);
 	FoodIcon.setFocusPainted(false);
 	FoodIcon.setOpaque(false);
+	FoodIcon.addMouseListener(click_FoodIcon);
 	FoodIcon.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	
 	//The Window
@@ -67,6 +78,7 @@ public class RestaurantMain {
 	frame.setLayout(null);
 	frame.getContentPane().setBackground(Color.WHITE);
 	frame.add(FoodIcon);
+	frame.add(menuframe);
 	frame.add(panel1);
 	frame.add(label_user);
 	frame.add(label_pass);
@@ -77,5 +89,39 @@ public class RestaurantMain {
 	
 	}
 	
+	MouseListener click_FoodIcon = new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			FoodIcon.setIcon(img_food2);
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			FoodIcon.setIcon(img_food);
+			
+		}
+	
+	};
 }
+
 
